@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wabi Catering | Gran Canaria</title>
+    <meta name="description" content="Servicio de catering exclusivo y alta cocina en Gran Canaria. Menús de autor diseñados a medida.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wabi: {
+                            dark: '#0a0a0a',
+                            darker: '#050505',
+                            gold: '#D4AF37',
+                            light: '#f5f5f5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #f5f5f5; 
+            overflow-x: hidden; 
+        }
+        .glass-panel { 
+            background: rgba(10, 10, 10, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(212, 175, 55, 0.15); 
+        }
+        .gold-gradient { 
+            background: linear-gradient(135deg, #D4AF37 0%, #AA8529 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        input[type="checkbox"] {
+            accent-color: #D4AF37;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-panel border-b border-wabi-gold/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 z-50 relative">
+                    <a href="#" class="text-3xl font-heading font-bold tracking-widest gold-gradient">WABI</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#esencia" class="text-sm uppercase tracking-widest text-gray-300 hover:text-wabi-gold transition-colors duration-300">Esencia</a>
+                    <a href="#experiencia" class="text-sm uppercase tracking-widest text-gray-300 hover:text-wabi-gold transition-colors duration-300">Experiencia</a>
+                    <a href="#menus" class="text-sm uppercase tracking-widest text-gray-300 hover:text-wabi-gold transition-colors duration-300">Menús</a>
+                    <a href="#personalizado" class="text-sm uppercase tracking-widest text-gray-300 hover:text-wabi-gold transition-colors duration-300">A Medida</a>
+                    <a href="#galeria" class="text-sm uppercase tracking-widest text-gray-300 hover:text-wabi-gold transition-colors duration-300">Galería</a>
+                    <a href="#presupuesto" class="border border-wabi-gold text-wabi-gold px-6 py-2 rounded-full hover:bg-wabi-gold hover:text-black transition-all duration-300 uppercase text-sm tracking-wider">Calcula tu evento</a>
+                </div>
+
+                <div class="md:hidden flex items-center z-50 relative">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-wabi-gold focus:outline-none p-2" aria-label="Abrir menú">
+                        <svg class="h-8 w-8 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-wabi-darker z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center">
+            <div class="flex flex-col space-y-8 w-full px-6">
+                <a href="#esencia" class="mobile-link text-center text-2xl font-heading text-gray-300 hover:text-wabi-gold">Esencia</a>
+                <a href="#experiencia" class="mobile-link text-center text-2xl font-heading text-gray-300 hover:text-wabi-gold">Experiencia</a>
+                <a href="#menus" class="mobile-link text-center text-2xl font-heading text-gray-300 hover:text-wabi-gold">Menús</a>
+                <a href="#personalizado" class="mobile-link text-center text-2xl font-heading text-gray-300 hover:text-wabi-gold">A Medida</a>
+                <a href="#galeria" class="mobile-link text-center text-2xl font-heading text-gray-300 hover:text-wabi-gold">Galería</a>
+                <a href="#presupuesto" class="mobile-link text-center border border-wabi-gold text-wabi-gold px-8 py-4 mt-8 rounded-full hover:bg-wabi-gold hover:text-black transition-all duration-300 uppercase tracking-widest text-sm">Calcula tu evento</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Mesa de catering elegante" class="w-full h-full object-cover opacity-20" onerror="this.src='https://placehold.co/1920x1080/050505/D4AF37?text=WABI'">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-wabi-darker"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10 md:mt-0">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-heading mb-6 leading-tight">La alta cocina llega a <br/><span class="gold-gradient">tu propia mesa</span></h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light px-4">Servicio de catering exclusivo en Gran Canaria. Menús de autor diseñados a medida para que tu único trabajo sea disfrutar del momento.</p>
+            <a href="#presupuesto" class="inline-block bg-wabi-gold text-black px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)]">Descubrir Propuestas</a>
+        </div>
+    </header>
+
+    <section id="esencia" class="py-16 md:py-32 relative bg-wabi-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-wabi-gold transform translate-x-4 translate-y-4 rounded-lg opacity-20 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chef Wabi trabajando" class="relative z-10 rounded-lg w-full object-cover aspect-[4/5] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" onerror="this.src='https://placehold.co/800x1000/050505/D4AF37?text=Esencia'">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="w-20 h-1 bg-wabi-gold mb-6"></div>
+                    <h2 class="text-3xl md:text-5xl font-heading mb-6">Nuestra Esencia</h2>
+                    <p class="text-gray-400 mb-6 text-base md:text-lg leading-relaxed">En Wabi, creemos en la belleza de lo auténtico. Nuestro servicio de catering en Gran Canaria fusiona el respeto absoluto por el producto local con técnicas de vanguardia internacional.</p>
+                    <p class="text-gray-400 mb-8 text-base md:text-lg leading-relaxed">No solo cocinamos; diseñamos experiencias gastronómicas que transforman tu espacio en un restaurante de estrella Michelin por un día. Elegancia, exclusividad y sabor en cada detalle.</p>
+                    <div class="flex items-center gap-4 text-wabi-gold font-heading text-lg md:text-xl italic">
+                        <span>~ El arte de lo efímero</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-16 md:py-32 relative bg-wabi-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-24">
+                <h2 class="text-3xl md:text-5xl font-heading mb-4">La Experiencia Wabi</h2>
+                <div class="w-24 h-1 bg-wabi-gold mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+                <div class="text-center p-8 glass-panel rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-wabi-gold/10 text-wabi-gold text-3xl">👨‍🍳</div>
+                    <h3 class="text-xl font-heading mb-4 text-white">Chef Privado</h3>
+                    <p class="text-gray-400 text-sm md:text-base">Nuestro equipo se desplaza a tu ubicación para cocinar en directo, garantizando la máxima frescura y calidad en cada plato.</p>
+                </div>
+                <div class="text-center p-8 glass-panel rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-wabi-gold/10 text-wabi-gold text-3xl">🍽️</div>
+                    <h3 class="text-xl font-heading mb-4 text-white">Menaje Premium</h3>
+                    <p class="text-gray-400 text-sm md:text-base">Proveemos vajilla de diseño, cristalería elegante y cubertería de alta gama para que la presentación sea impecable.</p>
+                </div>
+                <div class="text-center p-8 glass-panel rounded-2xl hover:-translate-y-2 transition-transform duration-300 sm:col-span-2 md:col-span-1">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-wabi-gold/10 text-wabi-gold text-3xl">✨</div>
+                    <h3 class="text-xl font-heading mb-4 text-white">Servicio Impecable</h3>
+                    <p class="text-gray-400 text-sm md:text-base">Servicio de camareros profesionales. Nos encargamos del montaje y de dejar todo recogido al finalizar el evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menus" class="py-16 md:py-32 relative bg-wabi-darker z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading mb-4">Propuestas Gastronómicas</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto px-4">Selecciones curadas para elevar tus sentidos. Todos nuestros menús están diseñados para ofrecer una experiencia completa por <span class="text-wabi-gold font-bold">60€/comensal</span>.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-panel rounded-2xl overflow-hidden group">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Menú Japonés - Sushi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/050505/D4AF37?text=Japones'">
+                        <div class="absolute inset-0 bg-black/50 transition-opacity group-hover:bg-black/30"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading text-white shadow-sm">Experiencia Japonesa</h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-4 text-gray-300 text-sm md:text-base mb-2">
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Edamame trufado con sal volcánica negra.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Gyozas artesanales de cerdo ibérico y verduras.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Selección Premium de Nigiris y Uramakis (12 p.p.).</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Mochi artesanal de té matcha y yuzu fresco.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden group">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Menú Hindú - Curry" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/050505/D4AF37?text=Hindu'">
+                        <div class="absolute inset-0 bg-black/50 transition-opacity group-hover:bg-black/30"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading text-white shadow-sm">Viaje a la India</h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-4 text-gray-300 text-sm md:text-base mb-2">
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Samosas vegetales con chutney de mango picante.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Chicken Tikka Masala con especias tostadas.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Arroz Basmati aromático y pan Naan casero.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Gulab Jamun tibio con almíbar de cardamomo.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden group">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Menú Vegetariano - Sano" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/050505/D4AF37?text=Vegetariano'">
+                        <div class="absolute inset-0 bg-black/50 transition-opacity group-hover:bg-black/30"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-heading text-white shadow-sm">Naturaleza Pura</h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-4 text-gray-300 text-sm md:text-base mb-2">
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Tartar de remolacha y aguacate con crujiente.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Croquetas melosas de boletus y aceite de trufa.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Risotto de calabaza asada y queso flor gratinado.</span></li>
+                            <li class="flex items-start"><span class="text-wabi-gold mr-3">✦</span> <span>Coulant de chocolate puro 70% con frutos rojos.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="presupuesto" class="py-16 md:py-24 relative bg-wabi-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-wabi-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                
+                <h2 class="text-2xl md:text-3xl font-heading mb-8 text-center text-white">Diseña tu Evento</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-8">
+                    <div>
+                        <label for="menu-select" class="block text-sm font-medium text-gray-400 mb-2">Selecciona el Menú</label>
+                        <select id="menu-select" class="w-full bg-black/60 border border-wabi-gold/30 text-white rounded-lg px-4 py-3 sm:py-4 focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all appearance-none cursor-pointer">
+                            <option value="" disabled selected>Elige una opción...</option>
+                            <option value="japones">Experiencia Japonesa</option>
+                            <option value="hindu">Viaje a la India</option>
+                            <option value="vegetariano">Naturaleza Pura</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="guest-count" class="block text-sm font-medium text-gray-400 mb-2">Comensales (Mínimo 10)</label>
+                        <input type="number" id="guest-count" min="10" value="10" class="w-full bg-black/60 border border-wabi-gold/30 text-white rounded-lg px-4 py-3 sm:py-4 focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all">
+                    </div>
+                </div>
+
+                <div class="border-t border-wabi-gold/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <p class="text-sm text-gray-400 uppercase tracking-wider mb-1">Presupuesto Estimado</p>
+                        <p class="text-5xl font-heading gold-gradient font-bold"><span id="total-price">600</span>€</p>
+                        <p class="text-xs text-gray-500 mt-2">*Precio base fijo: 60€ por persona.</p>
+                    </div>
+                    <button id="btn-reservar" class="w-full md:w-auto bg-wabi-gold text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(212,175,55,0.2)]" disabled>
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personalizado" class="py-16 md:py-24 relative bg-wabi-darker border-t border-wabi-gold/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading mb-4">Crea tu Menú a Medida</h2>
+                <div class="w-24 h-1 bg-wabi-gold mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base px-4">¿Tienes una visión diferente para tu evento? Cuéntanos qué imaginas, selecciona tus preferencias y diseñaremos una propuesta gastronómica exclusiva pendiente de tu presupuesto.</p>
+            </div>
+
+            <div class="glass-panel p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-2xl">
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-wabi-gold/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                <form id="custom-menu-form" class="space-y-6 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Nombre y Apellidos</label>
+                            <input type="text" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Email / Teléfono</label>
+                            <input type="text" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Tipo de Evento</label>
+                            <select required class="w-full bg-black/60 border border-wabi-gold/30 text-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Selecciona el tipo de evento...</option>
+                                <option value="boda">Boda íntima</option>
+                                <option value="corporativo">Evento Corporativo</option>
+                                <option value="cumpleanos">Cumpleaños / Aniversario</option>
+                                <option value="cena">Cena Privada</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Comensales Estimados</label>
+                            <input type="number" min="10" placeholder="Ej. 25" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all">
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-wabi-gold/10">
+                        <label class="block text-xs uppercase tracking-wider text-wabi-gold mb-4">Preferencias Gastronómicas (Opcional)</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <label class="flex items-center space-x-2 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 bg-black/60 border-wabi-gold/30 rounded focus:ring-wabi-gold focus:ring-offset-0">
+                                <span class="text-sm text-gray-400 group-hover:text-white transition-colors">Mediterránea</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 bg-black/60 border-wabi-gold/30 rounded focus:ring-wabi-gold focus:ring-offset-0">
+                                <span class="text-sm text-gray-400 group-hover:text-white transition-colors">Fusión Asiática</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 bg-black/60 border-wabi-gold/30 rounded focus:ring-wabi-gold focus:ring-offset-0">
+                                <span class="text-sm text-gray-400 group-hover:text-white transition-colors">Vegetariano/Vegano</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 bg-black/60 border-wabi-gold/30 rounded focus:ring-wabi-gold focus:ring-offset-0">
+                                <span class="text-sm text-gray-400 group-hover:text-white transition-colors">Carnes Premium</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-wabi-gold/10">
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Cuéntanos más sobre tu idea</label>
+                        <textarea rows="4" required placeholder="Describe la temática de tu evento, ubicación, ingredientes deseados, alergias importantes..." class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-wabi-gold focus:ring-1 focus:ring-wabi-gold transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-transparent border border-wabi-gold text-wabi-gold font-bold uppercase tracking-wider py-4 rounded-lg mt-6 hover:bg-wabi-gold hover:text-black transition-all duration-300">
+                        Solicitar Presupuesto A Medida
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="py-16 md:py-24 relative bg-wabi-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading mb-4">Momentos Wabi</h2>
+                <div class="w-24 h-1 bg-wabi-gold mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+                <div class="relative group overflow-hidden rounded-xl aspect-square border border-wabi-gold/10">
+                    <img src="https://images.unsplash.com/photo-1579871494447-0811cf80d49d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sushi premium" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100" onerror="this.src='https://placehold.co/600x600/050505/D4AF37?text=Foto'">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl aspect-square border border-wabi-gold/10">
+                    <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Plato elegante" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100" onerror="this.src='https://placehold.co/600x600/050505/D4AF37?text=Foto'">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl aspect-square border border-wabi-gold/10">
+                    <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ingredientes" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100" onerror="this.src='https://placehold.co/600x600/050505/D4AF37?text=Foto'">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl aspect-square border border-wabi-gold/10">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mesa evento" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100" onerror="this.src='https://placehold.co/600x600/050505/D4AF37?text=Foto'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 md:py-24 relative bg-wabi-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading mb-4">Preguntas Frecuentes</h2>
+                <div class="w-24 h-1 bg-wabi-gold mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="space-y-4 md:space-y-6">
+                <div class="glass-panel p-6 md:p-8 rounded-xl border border-wabi-gold/10">
+                    <h3 class="text-lg md:text-xl font-heading text-wabi-gold mb-3">¿Os desplazáis a toda Gran Canaria?</h3>
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">Sí, damos servicio en toda la isla. Dependiendo de la distancia desde nuestro centro logístico hasta la ubicación del evento, podría aplicarse un pequeño suplemento de desplazamiento que te informaremos con total transparencia previamente.</p>
+                </div>
+                <div class="glass-panel p-6 md:p-8 rounded-xl border border-wabi-gold/10">
+                    <h3 class="text-lg md:text-xl font-heading text-wabi-gold mb-3">¿Qué ocurre si hay alergias o intolerancias?</h3>
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">Adaptamos los menús sin coste adicional. Solo necesitamos que nos avises con antelación a través del formulario de reserva para que nuestro equipo prepare alternativas totalmente seguras y deliciosas.</p>
+                </div>
+                <div class="glass-panel p-6 md:p-8 rounded-xl border border-wabi-gold/10">
+                    <h3 class="text-lg md:text-xl font-heading text-wabi-gold mb-3">¿Qué incluye exactamente el precio de 60€?</h3>
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">El precio incluye la compra de ingredientes de primera calidad, la elaboración por parte del chef en tu ubicación, el menaje completo (platos, cubiertos de diseño) y la limpieza exhaustiva de la zona de trabajo tras el servicio. Las bebidas se presupuestan aparte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-wabi-gold/20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-heading text-wabi-gold tracking-widest mb-4">WABI CATERING</h2>
+            <p class="text-gray-500 text-sm mb-6">Gran Canaria, Islas Canarias</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-wabi-gold transition-colors">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-wabi-gold transition-colors">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-wabi-gold transition-colors">WhatsApp</a>
+            </div>
+            <p class="text-xs text-gray-600">© 2026 Wabi Catering. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl max-w-lg w-full relative transform scale-95 transition-transform duration-300 border border-wabi-gold/30 shadow-2xl overflow-y-auto max-h-[90vh]" id="modal-content">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-wabi-gold transition-colors" aria-label="Cerrar">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h3 class="text-2xl md:text-3xl font-heading text-wabi-gold mb-2 pr-8">Finalizar Solicitud</h3>
+            <p class="text-sm text-gray-400 mb-6">Has seleccionado <span id="summary-menu" class="text-white font-medium">...</span> para <span id="summary-guests" class="text-white font-medium">...</span> personas.</p>
+            
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Nombre y Apellidos</label>
+                    <input type="text" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:border-wabi-gold focus:outline-none focus:ring-1 focus:ring-wabi-gold">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Teléfono</label>
+                        <input type="tel" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:border-wabi-gold focus:outline-none focus:ring-1 focus:ring-wabi-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Fecha del Evento</label>
+                        <input type="date" required class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:border-wabi-gold focus:outline-none focus:ring-1 focus:ring-wabi-gold [color-scheme:dark]">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Alergias o lugar del evento</label>
+                    <textarea rows="3" class="w-full bg-black/60 border border-wabi-gold/30 rounded-lg px-4 py-3 text-white focus:border-wabi-gold focus:outline-none focus:ring-1 focus:ring-wabi-gold"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-wabi-gold text-black font-bold uppercase tracking-wider py-4 rounded-lg mt-6 hover:bg-white transition-colors duration-300">Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-32 opacity-0 transition-all duration-500 ease-out z-[200] bg-wabi-gold text-black px-6 py-4 rounded-lg shadow-2xl font-medium flex items-center gap-3 border border-yellow-200">
+        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>¡Solicitud enviada con éxito! Nos pondremos en contacto pronto.</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const PRICE_PER_PERSON = 60;
+
+            const menuSelect = document.getElementById('menu-select');
+            const guestCount = document.getElementById('guest-count');
+            const totalPrice = document.getElementById('total-price');
+            const btnReservar = document.getElementById('btn-reservar');
+            
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalBtn = document.getElementById('close-modal');
+            const bookingForm = document.getElementById('booking-form');
+            const customMenuForm = document.getElementById('custom-menu-form');
+            const toast = document.getElementById('toast');
+
+            function toggleMobileMenu() {
+                const isHidden = mobileMenu.classList.contains('translate-x-full');
+                if (isHidden) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+            function calculateTotal() {
+                if (!guestCount || !totalPrice || !menuSelect || !btnReservar) return;
+                let guests = parseInt(guestCount.value);
+                if (isNaN(guests) || guests < 10) guests = 10;
+                totalPrice.textContent = (guests * PRICE_PER_PERSON).toLocaleString('es-ES');
+                btnReservar.disabled = !menuSelect.value;
+            }
+
+            if (menuSelect) menuSelect.addEventListener('change', calculateTotal);
+            if (guestCount) {
+                guestCount.addEventListener('input', calculateTotal);
+                guestCount.addEventListener('blur', () => {
+                    if (parseInt(guestCount.value) < 10 || guestCount.value === '') {
+                        guestCount.value = 10;
+                        calculateTotal();
+                    }
+                });
+            }
+
+            function openModal() {
+                if (!menuSelect.value) return;
+                const menuName = menuSelect.options[menuSelect.selectedIndex].text;
+                document.getElementById('summary-menu').textContent = `Menú ${menuName}`;
+                document.getElementById('summary-guests').textContent = guestCount.value;
+                
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                }, 10);
+            }
+
+            function closeContactModal() {
+                modal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+
+            if (btnReservar) btnReservar.addEventListener('click', openModal);
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeContactModal);
+            
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeContactModal();
+                });
+            }
+
+            function showToastAndReset(formElement, isModal = false) {
+                if (isModal) closeContactModal();
+                toast.classList.remove('translate-y-32', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-32', 'opacity-0');
+                    formElement.reset();
+                    if (isModal) {
+                        menuSelect.value = ""; 
+                        guestCount.value = "10";
+                        calculateTotal(); 
+                    }
+                }, 4000);
+            }
+
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); 
+                    showToastAndReset(bookingForm, true);
+                });
+            }
+
+            if (customMenuForm) {
+                customMenuForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); 
+                    showToastAndReset(customMenuForm, false);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
